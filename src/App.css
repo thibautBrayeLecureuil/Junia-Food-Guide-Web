@@ -28,51 +28,18 @@
   text-align: left;
 }
 
-/* css - src/App.css */
-
 .card-grid {
-    margin-top: 3.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    align-items: stretch;
-    justify-content: flex-start;
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
 }
 
-/* chaque carte : flexible, limite de largeur pour 3 colonnes */
 .card-component {
-    box-sizing: border-box;
-    flex: 1 1 calc(33.333% - 1rem);
-    max-width: calc(33.333% - 1rem);
-    overflow: hidden;
-    border-radius: 0.75rem;
-    display: block;
+  overflow: hidden;
+  border-radius: 1rem;
+  display: block;
 }
-
-/* medium screens => 2 colonnes */
-@media (max-width: 1200px) {
-    .card-component {
-        flex: 1 1 calc(50% - 1rem);
-        max-width: calc(50% - 1rem);
-    }
-}
-
-/* small screens => 1 colonne */
-@media (max-width: 900px) {
-    .card-component {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-}
-
-/* utilitaires optionnels pour que l'image de la card remplisse */
-.card-component img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
 
 .card-image-wrap {
   position: relative;
@@ -327,6 +294,10 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.footer{
+    background-color: var(--color-purple-900);
 }
 
 .user-icon{
