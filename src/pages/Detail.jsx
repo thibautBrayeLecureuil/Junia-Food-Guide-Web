@@ -5,7 +5,6 @@ import Ingredient from "../components/Ingerdient/Ingredient.jsx";
 import TagDetail from "../components/TagDetail/TagDetail.jsx";
 import TypeDetail from "../components/TypeDetail/TypeDetail.jsx";
 
-
 function Detail() {
 
     const params = useParams();
@@ -16,7 +15,7 @@ function Detail() {
         fetch('https://dummyjson.com/recipes/'+params.id)
             .then((response) => response.json())
             .then((data) => setReciepe(data))
-    },[]) ;
+    },[params.id]) ;
 
     const tags = reciepe ? reciepe.tags.map((tag, index) => (
         <TagDetail key={index} label={tag} />) ) : [];
@@ -35,12 +34,12 @@ function Detail() {
 
     return (
         reciepe ? (
-        <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-400 to-orange-300">
+        <div className="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-orange-500">
             <div className="relative h-[500px] overflow-hidden">
                 <img src={reciepe.image} alt={reciepe.name} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <a
-                    className="absolute top-8 left-8 bg-white/90 backdrop-blur-sm text-purple-600 px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition-all flex items-center gap-2 shadow-xl hover:scale-105 transform"
+                    className="absolute top-8 left-8 bg-white/90 backdrop-blur-sm text-pink-500 px-6 py-3 rounded-full font-bold hover:bg-orange-300 transition-all flex items-center gap-2 shadow-xl hover:scale-105 transform"
                     href="/"
                     data-discover="true"
                 ><svg
@@ -56,13 +55,12 @@ function Detail() {
                     className="lucide lucide-arrow-left size-5"
                 >
                     <path d="m12 19-7-7 7-7"></path>
-                    <path d="M19 12H5"></path></svg
-                >Retour au Menu</a
-                >
+                    <path d="M19 12H5"></path></svg>
+                Retour au Menu</a>
                 <div className="absolute bottom-8 left-8 right-8">
                     <h1 className="text-5xl md:text-7xl font-black text-white mb-4 drop-shadow-2xl">{reciepe.name}</h1>
                     <div className="flex flex-wrap items-center gap-4">
-                        <div className="bg-yellow-400 text-black px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
+                        <div className="bg-orange-500 text-white px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -73,15 +71,15 @@ function Detail() {
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                className="lucide lucide-star size-5 fill-black"
+                                className="lucide lucide-star size-5 fill-white"
                             >
                                 <path
                                     d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                                ></path></svg
-                            >4.6 (98 avis)
+                                ></path></svg>
+                            4.6 (98 avis)
                         </div>
-                        <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-bold">Facile</div>
-                        <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-bold">Italienne</div>
+                        <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-bold text-pink-500">Facile</div>
+                        <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-bold text-pink-500">Italienne</div>
                     </div>
                 </div>
             </div>
@@ -178,24 +176,23 @@ function Detail() {
                     </div>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-3xl shadow-xl border-4 border-purple-200 transform -rotate-1">
-                            <h2 className="text-4xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">🛒 Ingrédients</h2>
+                            <h2 className="text-4xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">🛒 Ingrédients</h2>
                             <ul className="space-y-3">
                                 {ingredients}
                             </ul>
                         </div>
                         <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-8 rounded-3xl shadow-xl border-4 border-orange-200 transform rotate-1">
-                            <h2 className="text-4xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-600">👨‍🍳 Instructions</h2>
+                            <h2 className="text-4xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-400">👨‍🍳 Instructions</h2>
                             <ol className="space-y-4">
                                 {instructions}
                             </ol>
                         </div>
                     </div>
                     <div className="mt-12 text-center">
-                        <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 p-8 rounded-3xl shadow-2xl inline-block transform -rotate-1">
+                        <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 p-8 rounded-3xl shadow-2xl inline-block transform -rotate-1">
                             <p className="text-3xl font-black text-white mb-4">Prêt à cuisiner funky ? 🎉</p>
-                            <a className="inline-block bg-white text-purple-600 px-8 py-4 rounded-full font-bold hover:bg-yellow-300 transition-all hover:scale-105 transform shadow-xl" href="/" data-discover="true"
-                            >Découvrir Plus de Plats</a
-                            >
+                            <a className="inline-block bg-white text-pink-500 px-8 py-4 rounded-full font-bold hover:bg-orange-300 transition-all hover:scale-105 transform shadow-xl" href="/" data-discover="true"
+                            >Découvrir Plus de Plats</a>
                         </div>
                     </div>
                 </div>
