@@ -3,7 +3,7 @@ import './Footer.css';
 
 const footerLinks = {
     features: ['Nos adresses', 'Nos événements', 'Partenariats'],
-    learnMore: ['Blog', 'Témoignages', 'Médias', 'Bonnes pratiques'],
+    learnMore: ['Blog', 'Témoignages', 'Médias'],
     support: ['Contact', 'Support', 'Mentions légales'],
 }
 

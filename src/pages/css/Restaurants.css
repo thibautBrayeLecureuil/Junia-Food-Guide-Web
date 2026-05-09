@@ -1,0 +1,230 @@
+.restaurants-grid {
+    margin-top: 1rem;
+    margin-inline: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+
+}
+
+/* appliquer le comportement flexible aux enfants (les .card-component) */
+.restaurants-grid > * {
+    box-sizing: border-box;
+    /* 3 colonnes par défaut */
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
+    min-width: 220px; /* évite des cartes trop étroites */
+}
+
+/* 2 colonnes pour écrans moyens */
+@media (max-width: 1200px) {
+    .restaurants-grid > * {
+        flex: 1 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+
+/* 1 colonne pour petits écrans */
+@media (max-width: 900px) {
+    .restaurant-grid > * {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* css - src/pages/css/Restaurants.css */
+/* zone de recherche : alignement et fond léger */
+.research-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.25rem 0;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: rgba(255,255,255,0.02);
+}
+
+/* barre de recherche : input extensible + bouton */
+.search-bar {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    width: 100%;
+}
+
+/* input principal */
+.search-input {
+    flex: 1 1 auto;
+    padding: 0.625rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 0.5rem;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(16,24,40,0.03);
+    transition: box-shadow 150ms ease, border-color 150ms ease;
+    outline: none;
+}
+
+/* focus input */
+.search-input:focus {
+    box-shadow: 0 4px 12px rgba(99,102,241,0.12);
+    border-color: rgba(99,102,241,0.6);
+}
+
+/* bouton de recherche */
+.search-button {
+    flex: 0 0 auto;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
+    border-radius: 0.5rem;
+    border: none;
+    background: var(--color-orange-500);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+/* état hover / active */
+.search-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.98;
+}
+.search-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(255,78,0,0.10);
+}
+
+/* filtres : inline, responsives */
+.filters {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* select style */
+.filter-select {
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #fff url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 24 24'%3E%3Cpath fill='%23999' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 0.6rem center;
+    background-size: 12px 8px;
+    padding-right: 2rem;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(16,24,40,0.02);
+}
+
+/* focus pour select */
+.filter-select:focus {
+    border-color: rgba(99,102,241,0.6);
+    box-shadow: 0 4px 12px rgba(99,102,241,0.06);
+    outline: none;
+}
+
+/* responsive : sur petits écrans empiler */
+@media (max-width: 720px) {
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+}
+
+h1 {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--color-purple-900);
+}
+
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+/* Boutons pagination */
+.pagination-button {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #ffffff;
+    color: var(--color-purple-900, #5b21b6);
+    padding: 0.45rem 0.75rem;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 999px; /* pill */
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(16,24,40,0.04);
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, color 120ms ease;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover / active tactile */
+.pagination-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(16,24,40,0.08);
+}
+
+.pagination-button:active {
+    transform: translateY(0);
+}
+
+/* Focus visible (accessibilité) */
+.pagination-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
+}
+
+.pagination-button.active {
+    background: var(--color-orange-500);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 8px 24px rgba(99,102,241,0.15);
+}
+
+.pagination-button[disabled] {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 480px) {
+    .pagination-button {
+        padding: 0.35rem 0.5rem;
+        min-width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
+    }
+}
+
+.home{
+    padding-top: 7rem;
+}
+

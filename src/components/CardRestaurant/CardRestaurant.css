@@ -1,0 +1,65 @@
+.card-component {
+    overflow: hidden;
+    border-radius: 1rem;
+    display: block;
+    border: #4a1f99 1px solid ;
+}
+
+.card-image-wrap {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+}
+
+.card-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+}
+
+.voir_plus {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding-top: 15%;
+    padding-bottom: 25%;
+}
+
+.voir_plus img {
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+}
+
+.card-image-wrap:hover img {
+    transform: scale(1.04);
+}
+
+.voir_plus:hover img {
+    transform: scale(1.04);
+}
+
+.event-badge {
+    position: absolute;
+    background: var(--color-orange-500);
+    color: var(--color-white);
+    padding: .4rem .7rem;
+    font-weight: 700;
+    border-radius: .25rem;
+    font-size: .85rem;
+    z-index: 49;
+}
+
+#location{
+    top: 1rem;
+    left: 1rem;
+}
+
+#price{
+    top: 4rem;
+    left : 1rem;
+}

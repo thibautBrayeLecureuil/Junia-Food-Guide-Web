@@ -1,7 +1,6 @@
-// src/components/Navbar.jsx
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo.png';
 import userIcon from '../assets/user-svgrepo-com.svg';
 import instagramIcon from '../assets/instagram-logo.svg';
 
@@ -22,13 +21,13 @@ function Navbar() {
             <div className="nav-inner max-w-7xl mx-auto px-4">
 
                 <div className="logo-box">
-                    <Link to="/" className="nav-logo">
-                        <img src={logo} alt="Logo_Junia_Food_Guide" className="size-full" />
+                    <Link to="/home" className="nav-logo">
+                        <img src={logo} alt="Logo_Junia_Food_Guide"/>
                     </Link>
                 </div>
 
                 <nav className="nav-links" aria-label="Main navigation">
-                    <Link to="/" className="nav-link">Accueil</Link>
+                    <Link to="/home" className="nav-link">Accueil</Link>
                     <Link to="/restaurants" className="nav-link">Restaurants</Link>
                     <Link to="/evenements" className="nav-link">Événements</Link>
                     <Link to="/contact" className="nav-link">Contact</Link>
